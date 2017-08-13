@@ -10,7 +10,8 @@ var divElement = function(string){
   layoverElement.style.position = 'absolute';
   layoverElement.style.backgroundColor = 'white';
   layoverElement.style.borderColor = 'white';
-  layoverElement.style.opacity = 0.5;
+  layoverElement.style.opacity = 1;
+  layoverElement.style.zIndex = 500;
   bindLayover();
   console.log('Layover Element: \n', layoverElement);
   addResizeListener();
@@ -42,7 +43,7 @@ var adjustTransparency = function(){
   console.log('OG:',num);
   num = num + inc;
   console.log(num);
-  if(num > 1 || num <=0){
+  if(num >=1 || num <=0){
     if(num <=0){
       layoverElement.style.opacity = 0;
     }else{
@@ -66,7 +67,7 @@ var bindLayover = function(){
   dimensions = {
     xPos: div.offsetLeft,
     yPos: div.offsetTop,
-    zIndex: 100,
+    zIndex: 500,
     height: div.offsetHeight,
     width: div.offsetWidth
   }
