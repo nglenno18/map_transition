@@ -29,6 +29,7 @@ var fadeDiv = function(ele, shutter, rate){
   element = document.getElementById(ele);
   var op = "1";
   if(rate > 0) op = "0";
+  element.style.opacity = op;
   if(!shutter) shutter = 90;
   inc = rate;
   console.log('settingInterval: ', inc);
