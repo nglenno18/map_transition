@@ -27,10 +27,10 @@ var setTransition = function(){
 var fadeDiv = function(ele, shutter, rate){
   console.log(ele);
   layoverElement = ele;
-  console.log('Layover Element: ', layoverElement);
+  console.log('Layover Element: ', ele);
   var op = "1";
   if(rate > 0) op = "0";
-  layoverElement.style.opacity = op;
+  ele.style.opacity = op;
   if(!shutter) shutter = 90;
   inc = rate;
   console.log('settingInterval: ', inc);
