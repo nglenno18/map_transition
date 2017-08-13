@@ -10,25 +10,9 @@ var divElement = function(string){
   element.style.position = 'absolute';
   element.style.backgroundColor = 'white';
   element.style.borderColor = 'white';
-
-  dimensions = {
-    xPos: div.offsetLeft,
-    yPos: div.offsetTop,
-    opacity: 0.5,
-    zIndex: 100,
-    height: div.offsetHeight,
-    width: div.offsetWidth
-  }
-  element.style.left = dimensions.xPos + 'px';
-  element.style.top = dimensions.yPos + 'px';
-  element.style.width = dimensions.width + 'px';
-  element.style.height = dimensions.height + 'px';
-  element.offsetHeight = dimensions.height;
-  element.offsetWidth = dimensions.width;
-  element.style.opacity = dimensions.opacity;
-  element.style.zIndex = dimensions.zIndex;
-  //set listeners to root element? or just create/remove elements every call?
-  console.log('Element to return: \n', element);
+  element.style.opacity = 0.5;
+  bindLayover();
+  console.log('Layover Element: \n', element);
   addResizeListener();
   return element;
 }
