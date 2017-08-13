@@ -26,7 +26,7 @@ var setTransition = function(){
 
 var fadeDiv = function(ele, shutter, rate){
   console.log(ele);
-  layoverElement = document.getElementById(ele);
+  layoverElement = ele;
   console.log('Layover Element: ', layoverElement);
   var op = "1";
   if(rate > 0) op = "0";
