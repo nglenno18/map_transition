@@ -27,6 +27,7 @@ var setTransition = function(){
 var fadeDiv = function(ele, shutter, rate){
   console.log(ele);
   element = document.getElementById(ele);
+  console.log('Layover Element: ', element);
   var op = "1";
   if(rate > 0) op = "0";
   element.style.opacity = op;
@@ -37,7 +38,7 @@ var fadeDiv = function(ele, shutter, rate){
 }
 
 var adjustTransparency = function(){
-  var num = parseFloat(element.style.opacity);
+  var num = parseFloat(layoverElement.style.opacity);
   console.log('OG:',num);
   num = num + inc;
   console.log(num);
