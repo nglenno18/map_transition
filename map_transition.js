@@ -1,9 +1,16 @@
 var pos = 0;
 var inc = -.1;
+var dimensions, mapDiv, element;
 
 var divElement = function(string){
   var div = document.getElementById(string);
-  var dimensions = "Layover Element To return";
+  mapDiv = string;
+  element = document.createElement('div');
+  element.id = "layoverDiv";
+  element.style.position = 'absolute';
+  element.style.backgroundColor = 'white';
+  element.style.borderColor = 'white';
+
   dimensions = {
     xPos: div.offsetLeft,
     yPos: div.offsetTop,
@@ -12,10 +19,6 @@ var divElement = function(string){
     height: div.offsetHeight,
     width: div.offsetWidth
   }
-  element = document.createElement('div');
-  element.id = "layoverDiv";
-  element.style.position = 'absolute';
-  element.style.backgroundColor = 'grey';
   element.style.left = dimensions.xPos + 'px';
   element.style.top = dimensions.yPos + 'px';
   element.style.width = dimensions.width + 'px';
@@ -26,17 +29,20 @@ var divElement = function(string){
   element.style.zIndex = dimensions.zIndex;
   //set listeners to root element? or just create/remove elements every call?
   console.log('Element to return: \n', element);
+  addResizeListener();
   return element;
 }
 
 var setTransition = function(){
-  if(layoverElement.style.opacity > 0)  fadeDiv(layoverElement, 100, -(.1));
+  if(layoverElement.style.opacity > 0)  fadeDiv(layoverElement.id, 100, -(.1));
   setTimeout(function(){
-    fadeDiv(layoverElement, 100, 0.05);
+    fadeDiv(layoverElement.id, 100, 0.05);
   }, 2500);
 }
 
-var fadeDiv = function(element, shutter, rate){
+var fadeDiv = function(ele, shutter, rate){
+  console.log(ele);
+  element = document.getElementById(ele);
   var op = "1";
   if(rate > 0) op = "0";
   if(!shutter) shutter = 90;
@@ -60,4 +66,32 @@ var adjustTransparency = function(){
   }else {
     element.style.opacity = num;
   }
+}
+
+var addResizeListener = function(){
+  window.addEventListener('resize', function(event){
+    console.log('Window is resized');
+    bindLayover();
+  });
+}
+
+var bindLayover = function(){
+  div = document.getElementById(mapDiv);
+  dimensions = {
+    xPos: div.offsetLeft,
+    yPos: div.offsetTop,
+    zIndex: 100,
+    height: div.offsetHeight,
+    width: div.offsetWidth
+  }
+  element.id = "layoverDiv";
+  element.style.position = 'absolute';
+  element.style.backgroundColor = 'white';
+  element.style.borderColor = 'white';
+  element.style.left = dimensions.xPos + 'px';
+  element.style.top = dimensions.yPos + 'px';
+  element.style.width = dimensions.width + 'px';
+  element.style.height = dimensions.height + 'px';
+  element.offsetHeight = dimensions.height;
+  element.offsetWidth = dimensions.width;
 }

@@ -1,4 +1,4 @@
-<div id="container1" style="height:50%; width: 90%; border: 1px grey solid;">
+<div id="container1" style="height:50%; width: 90%; border: 1px white solid;">
   <div id="mapdiv1" style="height:100%"></div>
   <div id="map_pan"></div>
 </div>
@@ -14,7 +14,7 @@
   console.log(layoverElement);
   document.body.appendChild(layoverElement);
 
-  fadeDiv(layoverElement, 100, -(.1));
+  fadeDiv(layoverElement.id, 100, -(.1));
 
   interval = setInterval(setTransition, 5000);
 
