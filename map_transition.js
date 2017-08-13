@@ -20,7 +20,7 @@ var divElement = function(string){
 }
 
 var setTransition = function(){
-  if(layoverElement.style.opacity > 0)  fadeDiv(layoverElement, 100, -(.1));
+  if(layoverElement.style.opacity > 0)  fadeDiv(layoverElement, 100, -(0.05));
   setTimeout(function(){
     fadeDiv(layoverElement, 100, 0.05);
   }, 2500);
@@ -45,7 +45,7 @@ var adjustTransparency = function(){
   num = num + inc;
   console.log(num);
   if(num >=1 || num <=0){
-    if(num <=0){
+    if(num <=0.1){
       layoverElement.style.opacity = 0;
     }else{
       layoverElement.style.opacity = 1;
