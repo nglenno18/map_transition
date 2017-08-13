@@ -40,8 +40,8 @@ var adjustTransparency = function(){
   console.log('OG:',num);
   num = num + inc;
   console.log(num);
-  if(num > 1 || num < 0){
-    if(num < 0){
+  if(num > 1 || num <=0){
+    if(num <=0){
       element.style.opacity = 0;
     }else{
       element.style.opacity = 1;
