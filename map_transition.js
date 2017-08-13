@@ -4,6 +4,7 @@ var dimensions, mapDiv, layoverElement;
 
 var divElement = function(string){
   var div = document.getElementById(string);
+  div.style.zIndex = 100;
   mapDiv = string;
   layoverElement = document.createElement('div');
   layoverElement.id = "layoverDiv";
@@ -49,8 +50,10 @@ var adjustTransparency = function(){
     }else{
       layoverElement.style.opacity = 1;
     }
+    layoverElement.style.zIndex = 0;
     clearInterval(interval2);
   }else {
+    layoverElement.style.zIndex = 500;
     layoverElement.style.opacity = num;
   }
 }
@@ -67,7 +70,6 @@ var bindLayover = function(){
   dimensions = {
     xPos: div.offsetLeft,
     yPos: div.offsetTop,
-    zIndex: 500,
     height: div.offsetHeight,
     width: div.offsetWidth
   }
