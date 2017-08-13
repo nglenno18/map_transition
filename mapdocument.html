@@ -1,0 +1,21 @@
+<div id="container1" style="height:50%; width: 90%; border: 1px grey solid;">
+  <div id="mapdiv1" style="height:100%"></div>
+  <div id="map_pan"></div>
+</div>
+
+<script src="https://maps.google.com/maps/api/js?libraries=geometry"></script>
+<script src="map_transition.js"></script>
+<script src="mapdiv.js"></script>
+
+<script type="text/javascript">
+  var mapName = "mapdiv1";
+  initializeMap(mapName);
+  var layoverElement = divElement(mapName);
+  console.log(layoverElement);
+  document.body.appendChild(layoverElement);
+
+  fadeDiv(layoverElement, 100, -(.1));
+
+  interval = setInterval(setTransition, 5000);
+
+</script>
